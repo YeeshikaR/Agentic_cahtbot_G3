@@ -1,0 +1,248 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --muted: #94a3b8;
+  --text: #e5e7eb;
+  --accent: #22d3ee;
+  --green: #22c55e;
+  --yellow: #f59e0b;
+  --red: #ef4444;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body { 
+  margin: 0; 
+  background: var(--bg); 
+  color: var(--text); 
+  font-family: Inter, system-ui, Arial, sans-serif; 
+}
+
+.app { 
+  max-width: 1100px; 
+  margin: 0 auto; 
+  padding: 20px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 16px; 
+}
+
+header { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 12px; 
+}
+
+header h1 { 
+  font-size: 20px; 
+  margin: 0; 
+}
+
+.controls { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+}
+
+.controls label { 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 6px; 
+  font-size: 14px; 
+}
+
+.controls .secondary { 
+  background: #1f2937; 
+  color: #e5e7eb; 
+  border: 1px solid #374151; 
+  padding: 6px 10px; 
+  border-radius: 8px; 
+  cursor: pointer; 
+}
+
+.controls .secondary:disabled { 
+  opacity: 0.5; 
+  cursor: not-allowed; 
+}
+
+.controls .link { 
+  color: var(--accent); 
+  text-decoration: none; 
+  font-size: 14px; 
+}
+
+main { 
+  display: grid; 
+  grid-template-columns: 1.2fr 0.8fr; 
+  gap: 16px; 
+}
+
+.left { 
+  background: var(--panel); 
+  border: 1px solid #1f2937; 
+  border-radius: 12px; 
+  display: flex; 
+  flex-direction: column; 
+}
+
+.right { 
+  background: var(--panel); 
+  border: 1px solid #1f2937; 
+  border-radius: 12px; 
+  padding: 12px; 
+}
+
+.chat { 
+  height: 420px; 
+  overflow: auto; 
+  padding: 12px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px; 
+}
+
+.input { 
+  display: flex; 
+  gap: 8px; 
+  padding: 12px; 
+  border-top: 1px solid #1f2937; 
+}
+
+.input input { 
+  flex: 1; 
+  padding: 10px 12px; 
+  background: #0b1220; 
+  border: 1px solid #1f2937; 
+  border-radius: 10px; 
+  color: var(--text); 
+}
+
+.input button { 
+  padding: 10px 16px; 
+  border: none; 
+  background: var(--accent); 
+  color: #000; 
+  border-radius: 10px; 
+  cursor: pointer; 
+  font-weight: 600; 
+}
+
+.input button:disabled { 
+  opacity: 0.6; 
+  cursor: not-allowed; 
+}
+
+.chat-bubble { 
+  max-width: 80%; 
+  padding: 10px 12px; 
+  border-radius: 12px; 
+  background: #0b1220; 
+  border: 1px solid #1f2937; 
+}
+
+.chat-bubble.right { 
+  align-self: flex-end; 
+  background: #0b2030; 
+  border-color: #163046; 
+}
+
+.chat-header { 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+  margin-bottom: 4px; 
+  font-size: 13px; 
+  color: var(--muted); 
+}
+
+.chat-header .tag { 
+  padding: 2px 8px; 
+  border-radius: 999px; 
+  border: 1px solid #1f2937; 
+  text-transform: capitalize; 
+}
+
+.tag.pending { 
+  color: var(--yellow); 
+  border-color: var(--yellow); 
+}
+
+.tag.in_progress { 
+  color: #60a5fa; 
+  border-color: #60a5fa; 
+}
+
+.tag.done { 
+  color: var(--green); 
+  border-color: var(--green); 
+}
+
+.chat-text { 
+  white-space: pre-wrap; 
+  line-height: 1.4; 
+}
+
+.logs { 
+  margin: 6px 0 0; 
+  padding-left: 18px; 
+  color: var(--muted); 
+  font-size: 13px; 
+}
+
+.progress-item { 
+  border: 1px solid #1f2937; 
+  border-radius: 10px; 
+  padding: 10px; 
+  margin-bottom: 10px; 
+  background: #0b1220; 
+}
+
+.progress-item .row { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  gap: 10px; 
+  margin-bottom: 8px; 
+}
+
+.progress-item .task { 
+  font-weight: 600; 
+}
+
+.progress-item .status { 
+  text-transform: capitalize; 
+  font-size: 12px; 
+  opacity: 0.9; 
+}
+
+.progress-item .status.pending { color: var(--yellow); }
+.progress-item .status.in_progress { color: #60a5fa; }
+.progress-item .status.done { color: var(--green); }
+
+.progress-item .bar { 
+  background: #0f172a; 
+  border: 1px solid #1f2937; 
+  height: 8px; 
+  border-radius: 999px; 
+  overflow: hidden; 
+}
+
+.progress-item .bar span { 
+  display: block; 
+  height: 100%; 
+  background: var(--accent); 
+}
+
+.progress-item .agent { 
+  margin-top: 6px; 
+  color: var(--muted); 
+  font-size: 12px; 
+}
+
+footer { 
+  display: flex; 
+  justify-content: center; 
+  color: var(--muted); 
+  font-size: 12px; 
+}
